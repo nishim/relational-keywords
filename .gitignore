@@ -1,3 +1,4 @@
 web/_/node_modules/
 web/_/rk.db
+web/_/*.log
 web/output/*.txt
