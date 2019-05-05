@@ -72,7 +72,7 @@ class Rk
             return;
         }
 
-        exec(sprintf('node ./_/capture.js "%s" "%s" > /dev/null 2>&1 &', $result[0]['keyword'], $result[0]['id']));
+        exec(escapeshellcmd(sprintf('node ./_/capture.js "%s" "%s" >> ./_/capture.log 2>&1 &', $result[0]['keyword'], $result[0]['id'])));
         $statement = $this->pdo->prepare(self::UPDATE_STATUS);
         $statement->execute([date('Y-m-d H:i:s'), $result[0]['id']]);
     }
