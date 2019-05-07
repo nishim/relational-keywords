@@ -94,7 +94,7 @@ class Rk
             $current = (int) preg_replace('/ .*$/', '', $output[0]);
         }
 
-        return sprintf("(%.3f%%)", $current / 11111.0);
+        return sprintf("(%.2f%%)", $current / 111.11);
     }
 
     private function rand(): string 
