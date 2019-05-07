@@ -33,7 +33,7 @@ const retrieve_keywords = async function(browser, query, level) {
   const keywords = await page.evaluate(() => {
     let arr = [];
     document.querySelectorAll('#brs .brs_col a').forEach((e) => {
-      arr.push(e.innerHTML.replace(/&amp;/, '&'));
+      arr.push(e.innerHTML.replace(/&amp;/, '&').replace(/<[^>]+>/g, ''));
     })
     return arr;
   })
