@@ -86,6 +86,16 @@ class Rk
         $pdo = null;
         return $result;
     }
+    public function progress(): string
+    {
+        $current = 0;
+        exec('wc -l ./_/tmp.txt', $output);
+        if (!empty($output)) {
+            $current = (int) preg_replace('/ .*$/', '', $output[0]);
+        }
+
+        return sprintf("(%.3f%%)", $current / 11111.0);
+    }
 
     private function rand(): string 
     {
@@ -136,7 +146,7 @@ $rk->pop();
       <?php foreach ($rk->list() as $k): ?>
       <tr>
         <td><?php echo htmlspecialchars($k['keyword']); ?></td>
-        <td><?php echo $k['status']; ?></td>
+        <td><?php echo $k['status']; if ($k['status'] === 'ACTIVE') { echo ' ' . $rk->progress(); } ?></td>
         <td><?php echo $k['created']; ?></td>
         <td><?php echo $k['activated']; ?></td>
         <td><?php echo $k['done']; ?></td>
