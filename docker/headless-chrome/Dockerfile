@@ -16,4 +16,4 @@ EXPOSE 9222
 
 ENV LANG=ja_JP.utf8
 
-CMD ["google-chrome-stable", "--headless", "--no-sandbox", "--remote-debugging-port=9222", "--remote-debugging-address=0.0.0.0", "--lang=ja", "https://www.google.com/"]
+CMD ["google-chrome-stable", "--headless", "--no-sandbox", "--remote-debugging-port=9222", "--remote-debugging-address=0.0.0.0", "--lang=ja_JP", "https://www.google.com/"]
